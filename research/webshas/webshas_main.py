@@ -10,7 +10,7 @@ from sources.local_settings import *
 import numpy as np
 
 from bert_serving.client import BertClient
-
+bc = BertClient()
 
 
 sys.path.insert(0, SEFARIA_PROJECT_PATH)
@@ -20,42 +20,22 @@ django.setup()
 
 from sefaria.model import *
 
-bc = BertClient()
-
-# sent_one = "I want to travel to Colorado for vacation in the winter"
-# sent_two = "Cake  is my favorite thing to eat at night"
-# sent_three = "I need to buy some groceries at the grocery store"
-# sent_four = "Writing in my diary is a safe way to express my thoughts"
-# sent_five = "My favorite active sports are snowboarding and skiing"
-#
-# english = [sent_one, sent_two, sent_three, sent_four, sent_five]
-# x = bc.encode(english)
-#
-# comparison = bc.encode([sent_five])[0]
-# # compute normalized dot product as score
-# score = np.sum(comparison * x, axis=1) / np.linalg.norm(x, axis=1)
-# topk_idx = np.argsort(score)[::-1]
-# for idx in topk_idx:
-#     print('> %s\t%s' % (score[idx], english[idx]))
-#
-# print len(x)
 
 
 
-# Iterate the WebShas Dict
-# Get all Segment Refs from an Amud
-# Calculate the BERT sentence score of the webshas text
-# Calculate the BERT sentence score of each segment ref text
-# Select the segment ref with the smallest cosine distance to the webshas text
 
-# for seg_ref in Ref('Nedarim 35b-36a').all_segment_refs():
-#     print seg_ref.normal(), TextChunk(seg_ref).text
+
+
+# Write a test set
+# Clean up the texts (bold tags, punctuation, stop words, etc...)
+# Try only using the words inbetween bold tags
+# Deal with having to combine texts from parent dicts in the webShas file with text is too small
+
+
 
 with open("../../../webshas2.json", "r") as read_file:
     data = json.load(read_file)
 
-
-# print len(data)
 
 overall_dict = {}
 
